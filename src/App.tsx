@@ -1,4 +1,11 @@
+
+
+
+
+
+
 import React, { useState } from 'react';
+
 import { BarChart3, Instagram, Twitter, Youtube, Facebook, TrendingUp, Users, MessageCircle, Share2, Search, Sparkles, ArrowRight, TrendingDown } from 'lucide-react';
 
 type Platform = 'instagram' | 'twitter' | 'youtube' | 'facebook';
