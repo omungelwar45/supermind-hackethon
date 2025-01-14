@@ -1,11 +1,4 @@
-
-
-
-
-
-
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { BarChart3, Instagram, Twitter, Youtube, Facebook, TrendingUp, Users, MessageCircle, Share2, Search, Sparkles, ArrowRight, TrendingDown } from 'lucide-react';
 
 type Platform = 'instagram' | 'twitter' | 'youtube' | 'facebook';
@@ -34,9 +27,9 @@ function AboutPage() {
 
         <div className="flex flex-col items-center">
           <img
-            src="/WhatsApp Image 2025-01-10 at 15.40.07_dd46f047.jpg" // Replace with the actual logo URL
+            src="/WhatsApp Image 2025-01-10 at 15.40.07_dd46f047.jpg"
             alt="Team Logo"
-            className=" w-40 h-40 mx-auto mb-6 rounded-full shadow-lg border-4 border-white cursor-pointer"
+            className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg border-4 border-white cursor-pointer"
           />
           <h2 className="text-3xl font-bold mb-8">Team Innovators</h2>
 
@@ -69,6 +62,25 @@ function App() {
   const [analysis, setAnalysis] = useState<ReelAnalysis | null>(null);
   const [comparisonAnalysis, setComparisonAnalysis] = useState<ReelAnalysis | null>(null);
   const [currentPage, setCurrentPage] = useState<'home' | 'about'>('home');
+
+  // Add cursor movement handler
+  useEffect(() => {
+    // Create cursor element
+    const cursor = document.createElement('div');
+    cursor.id = 'custom-cursor';
+    document.body.appendChild(cursor);
+    
+    const moveCursor = (e: MouseEvent) => {
+      cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+    };
+
+    document.addEventListener('mousemove', moveCursor);
+
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+      document.body.removeChild(cursor);
+    };
+  }, []);
 
   const platforms = [
     { name: 'instagram', icon: Instagram, color: 'bg-pink-500', label: 'Instagram' },
