@@ -1,0 +1,31 @@
+/* App.css */
+.magical-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    border-radius: 50%;
+    pointer-events: none; /* Prevent the cursor from interfering with pointer events */
+    z-index: 9999; /* Ensure the cursor stays on top */
+    mix-blend-mode: difference; /* Gives a glowing magical effect on dark backgrounds */
+    transition: transform 0.1s ease-out;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+  
